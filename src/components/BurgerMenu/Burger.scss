@@ -3,23 +3,27 @@
   justify-content: center;
   align-items: center;
   height: 100%;
-  width: 20px;
+  width: 44px;
 }
 
 .burger {
-  height: 12px;
-  width: 16px;
+  height: 36px;
+  width: 36px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
   cursor: pointer;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  background: white;
 }
 
 .burger-bar {
-  width: 20px;
+  width: 16px;
   height: 2px;
-  background-color: black;
+  background-color: #111827;
   border-radius: 1px;
 }
 
@@ -29,7 +33,8 @@
   right: 0;
   width: 100%;
   max-width: 100%;
-  background-color: ghostwhite;
+  background-color: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
   z-index: 4;
   visibility: hidden;
   height: 0;
@@ -38,8 +43,8 @@
 }
 
 .burger__menu.visible {
-  border: 1px solid rgba(226, 230, 233, 1);
-  height: calc(100vh - 48px);
+  border-top: 1px solid rgba(226, 230, 233, 1);
+  height: calc(100vh - 102px);
   visibility: visible;
   transition: height 0.3s ease-in, visibility 0s 0s;
 }
@@ -48,45 +53,8 @@
   visibility: hidden;
 }
 
-.menu__container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-transform: uppercase;
-  font-size: 12px;
-  font-weight: 800;
-}
-
-.menu__item {
-  color: black;
-  height: 27px;
-  margin-top: 16px;
-  position: relative;
-  transition: color 0.3s ease;
-  cursor: pointer;
-}
-
-.header-item-active {
-  color:darkgrey;
-}
-
-.menu__item:hover {
-  color: darkgray;
-}
-
-.menu__item:hover::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 2px;
-  background-color: darkgray;
-}
-
-
 .burger-bar.clicked:nth-child(1) {
-  transform: rotate(45deg) translate(3.5px, 3.5px);
+  transform: rotate(45deg) translate(4px, 4px);
   transition: ease-out 0.5s;
 }
 
@@ -96,7 +64,7 @@
 }
 
 .burger-bar.clicked:nth-child(3) {
-  transform: rotate(-45deg) translate(3.5px, -3.5px);
+  transform: rotate(-45deg) translate(4px, -4px);
   transition: ease-out 0.5s;
 }
 
@@ -113,5 +81,7 @@
   justify-content: center;
   align-items: center;
   text-transform: uppercase;
-  height: calc(100% - 102px);
+  height: 100%;
+  letter-spacing: 0.12em;
+  padding-bottom: 100px;
 }

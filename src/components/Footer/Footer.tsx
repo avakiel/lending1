@@ -1,64 +1,70 @@
-import React from "react";
-import "./Footer.scss";
-import { NavMenu } from "../Nav/NavMenu";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from 'react';
+import './Footer.scss';
+import { NavMenu } from '../Nav/NavMenu';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faTwitter,
   faLinkedin,
   faPinterest,
   faFacebookF,
-} from "@fortawesome/free-brands-svg-icons";
+} from '@fortawesome/free-brands-svg-icons';
+
+const socialLinks = [
+  { icon: faFacebookF, href: 'https://www.facebook.com', label: 'Facebook' },
+  { icon: faTwitter, href: 'https://www.twitter.com', label: 'Twitter' },
+  { icon: faLinkedin, href: 'https://www.linkedin.com', label: 'LinkedIn' },
+  { icon: faPinterest, href: 'https://www.pinterest.com', label: 'Pinterest' },
+];
 
 export const Footer = () => {
   return (
-    <div className="footer">
+    <footer className="footer">
       <div className="footer__main">
         <div className="footer__main-logo"></div>
         <div className="footer__main-menu">
-          <p>Информация</p>
+          <p>Navigation</p>
           <NavMenu
             containerClass="footer__main-menu-nav"
             itemsClass="footer__main-menu-item"
           />
         </div>
         <div className="footer__main-contacts">
-          <p>Контакты</p>
+          <p>Contact</p>
           <div className="footer__main-contacts-adress contacts__content">
             <div className="logo"></div>
             <a
-              href="https://www.google.com/maps?q=100000, Республика Казахстан, г. Караганда, ул. Телевизионная 10"
+              href="https://www.google.com/maps?q=220+West+19th+Street,+New+York,+NY+10011"
               target="_blank"
               rel="noreferrer"
             >
               <p>
-                100000, Республика Казахстан, <br /> г. Караганда, ул.
-                Телевизионная 10
+                220 West 19th Street, <br /> New York, NY 10011
               </p>
             </a>
           </div>
           <div className="footer__main-contacts-tel contacts__content">
             <div className="logo"></div>
-            <a href="tel:+380000000000">+38 (000) 000 00 00</a>
+            <a href="tel:+12125550184">+1 (212) 555-0184</a>
           </div>
           <div className="footer__main-contacts-email contacts__content">
             <div className="logo"></div>
-            <a href="mailto:mail@gmail.com">mail@gmail.com</a>
+            <a href="mailto:hello@digitalproject.studio">hello@digitalproject.studio</a>
           </div>
         </div>
         <div className="footer__main-media">
-          <p>Социальные сети</p>
+          <p>Follow Us</p>
           <div>
-          <FontAwesomeIcon icon={faFacebookF} style={{ color: "white", height: '20px', cursor: 'pointer' }} />
-          <FontAwesomeIcon icon={faTwitter} style={{ color: "white", height: '20px', cursor: 'pointer' }} />
-          <FontAwesomeIcon icon={faLinkedin} style={{ color: "white", height: '20px', cursor: 'pointer' }} />
-          <FontAwesomeIcon icon={faPinterest} style={{ color: "white", height: '20px', cursor: 'pointer' }} /></div>
+            {socialLinks.map(({ icon, href, label }) => (
+              <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label}>
+                <FontAwesomeIcon icon={icon} style={{ color: 'white', height: '20px', cursor: 'pointer' }} />
+              </a>
+            ))}
+          </div>
         </div>
       </div>
       <div className="footer__add">
-        <div className="footer__add-text">
-          © 2019 Digital Project. Все права защищены.
-        </div>
+        <div className="footer__add-text">© 2026 Digital Project Studio. All rights reserved.</div>
       </div>
-    </div>
+    </footer>
   );
 };

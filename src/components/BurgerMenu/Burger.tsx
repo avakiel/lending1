@@ -1,39 +1,36 @@
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable arrow-body-style */
-
-import { useState } from "react";
-import "../BurgerMenu/Burger.scss";
-import { NavMenu } from "../Nav/NavMenu";
-
+import { useEffect, useState } from 'react';
+import '../BurgerMenu/Burger.scss';
+import { NavMenu } from '../Nav/NavMenu';
 
 export const Burger = () => {
-  const [burgerClass, setBurgerClass] = useState("burger-bar unclicked");
-  const [menuClass, setMenuClass] = useState("burger__menu hidden");
+  const [burgerClass, setBurgerClass] = useState('burger-bar unclicked');
+  const [menuClass, setMenuClass] = useState('burger__menu hidden');
   const [isMenuClicked, setIsMenuClicked] = useState(false);
 
-  const updateMenu = () => {
-    const newBurgerClass = isMenuClicked ? "burger-bar unclicked" : "burger-bar clicked";
-    const newMenuClass = isMenuClicked ? "burger__menu hidden" : "burger__menu visible";
-    document.body.style.overflow = !isMenuClicked ? "hidden" : "auto";
-
-    setBurgerClass(newBurgerClass);
-    setMenuClass(newMenuClass);
-    setIsMenuClicked(!isMenuClicked);
+  const updateMenu = (nextState = !isMenuClicked) => {
+    setBurgerClass(nextState ? 'burger-bar clicked' : 'burger-bar unclicked');
+    setMenuClass(nextState ? 'burger__menu visible' : 'burger__menu hidden');
+    document.body.style.overflow = nextState ? 'hidden' : 'auto';
+    setIsMenuClicked(nextState);
   };
 
-
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
 
   return (
     <div className="burger__container">
-      <nav className="burger__container-burger">
-        <div className="burger" onClick={updateMenu}>
+      <nav className="burger__container-burger" aria-label="Mobile navigation toggle">
+        <button type="button" className="burger" onClick={() => updateMenu()} aria-expanded={isMenuClicked} aria-label="Toggle menu">
           <div className={burgerClass}></div>
           <div className={burgerClass}></div>
           <div className={burgerClass}></div>
-        </div>
+        </button>
       </nav>
       <div className={menuClass}>
-        <NavMenu containerClass="burger__nav"/>
+        <NavMenu containerClass="burger__nav" onItemClick={() => updateMenu(false)} />
       </div>
     </div>
   );

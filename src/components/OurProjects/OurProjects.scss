@@ -9,64 +9,66 @@
 .ourProjects {
   display: flex;
   flex-direction: column;
-  margin-top: 120px;
+  margin-top: 100px;
   width: 100%;
-  height: 765px;
 
   @include onTablet {
-    height: 100%;
+    margin-top: 72px;
   }
 
   @include onSmallPhone {
-    height: 100%;
-    margin-top: 60px;
+    margin-top: 56px;
   }
 
-
   &__title {
-    height: 64px;
     font-size: 64px;
+    line-height: 1;
     color: #bdbdbd;
 
     @include onSmallPhone {
-      font-size: 32px;
-      height: 100%;
+      font-size: 36px;
     }
   }
 
   &__gallery {
-    margin-top: 60px;
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 30px;
 
     @include onSmallPhone {
-      margin-top: 30px;
-      gap: 10px;
+      margin-top: 24px;
+      gap: 16px;
     }
 
     &__top {
       display: flex;
       flex-direction: row;
       gap: 30px;
+      width: 100%;
 
       @include onTablet {
-        width: 100%;
         flex-direction: column;
       }
 
       @include onSmallPhone {
-        width: 100%;
         flex-direction: column;
       }
 
+      &-pic1,
+      &-pic2 {
+        border-radius: 28px;
+        overflow: hidden;
+        box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+      }
+
       &-pic1 {
-        background-image: url("../../img/bg-1.png");
+        background-image: url('../../img/bg-1.png');
         background-repeat: no-repeat;
+        background-position: center;
         width: 570px;
         height: 255px;
-        overflow: hidden;
 
         @include onTablet {
           @include responsiveBackground();
@@ -78,7 +80,7 @@
       }
 
       &-pic2 {
-        background-image: url("../../img/image\ 15.png");
+        background-image: url('../../img/image 15.png');
         background-repeat: no-repeat;
         background-size: cover;
         width: 570px;
@@ -98,19 +100,26 @@
       display: flex;
       flex-direction: row;
       gap: 30px;
+      width: 100%;
 
       @include onTablet {
         flex-direction: column;
-        width: 100%;
       }
 
       @include onSmallPhone {
         flex-direction: column;
-        width: 100%;
+      }
+
+      &-pic1,
+      &-pic2,
+      &-pic3 {
+        border-radius: 28px;
+        overflow: hidden;
+        box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
       }
 
       &-pic1 {
-        background-image: url("../../img/image\ 16.png");
+        background-image: url('../../img/image 16.png');
         background-repeat: no-repeat;
         background-size: cover;
         width: 270px;
@@ -126,7 +135,7 @@
       }
 
       &-pic2 {
-        background-image: url("../../img/image\ 17.png");
+        background-image: url('../../img/image 17.png');
         background-repeat: no-repeat;
         background-size: cover;
         width: 470px;
@@ -142,7 +151,7 @@
       }
 
       &-pic3 {
-        background-image: url("../../img/image\ 18.png");
+        background-image: url('../../img/image 18.png');
         background-repeat: no-repeat;
         background-size: cover;
         width: 370px;
@@ -155,7 +164,6 @@
         @include onSmallPhone {
           @include responsiveBackground();
         }
-
       }
     }
   }
@@ -166,9 +174,13 @@
     height: 71px;
     align-self: flex-end;
     background-color: #333333;
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.16);
+    transition: transform 0.3s ease, background-color 0.3s ease;
 
     @include onSmallPhone {
-      align-self: center;
+      align-self: stretch;
+      width: 100%;
     }
 
     > div {
@@ -181,12 +193,14 @@
 
       > span {
         z-index: 2;
-        background-image: url("../../img/arrow-white.svg");
+        background-image: url('../../img/arrow-white.svg');
         margin-left: 12px;
       }
     }
   }
+
   &__button:hover {
+    transform: translateY(-2px);
     background-color: #515151;
   }
 }
@@ -200,56 +214,76 @@
   cursor: pointer;
 
   &-big {
-    padding: 48px 78px;
+    padding: 40px 48px;
 
-    > div:first-child {
+    > div:first-of-type {
       color: white;
-      font-size: 64px;
+      font-size: 52px;
+      line-height: 0.95;
       font-weight: 700;
 
       @include onTablet {
-        font-size: 28px;
+        font-size: 32px;
       }
-      
+
       @include onSmallPhone {
-        font-size: 28px;
+        font-size: 30px;
       }
     }
 
     @include onTablet {
-      padding: 15px 38px;
+      padding: 28px 32px;
     }
 
     @include onSmallPhone {
-      padding: 15px 38px;
+      padding: 24px;
     }
   }
 
   &-small {
-    padding: 15px 38px;
+    padding: 28px;
 
-    > div:first-child {
+    > div:first-of-type {
       color: white;
       font-size: 28px;
+      line-height: 1.1;
       font-weight: 700;
     }
   }
 
   &__main {
-    display: none;
     position: relative;
     box-sizing: border-box;
     width: 100%;
     height: 100%;
+    display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: flex-start;
     z-index: 2;
     color: white;
-    gap: 8px;
+    gap: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    @include onTablet {
+      opacity: 1;
+    }
+
+    @include onSmallPhone {
+      opacity: 1;
+    }
+
+    > span {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.78);
+    }
 
     &-button {
       gap: 12px;
+      color: white;
 
       > div {
         > span {
@@ -259,18 +293,15 @@
     }
   }
 
-  &:hover {
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(51, 51, 51, 0.7);
-    }
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.15) 0%, rgba(15, 23, 42, 0.78) 100%);
+    transition: background-color 0.3s ease;
   }
+
   &:hover .pic__content__main {
-    display: flex;
+    opacity: 1;
   }
 }

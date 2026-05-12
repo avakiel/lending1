@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-has-content */
 import React, { useEffect, useState } from 'react';
 import './Header.scss';
 import { NavMenu } from '../Nav/NavMenu';
@@ -13,23 +12,23 @@ export const Header = () => {
     };
 
     handleResize();
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
   return (
-    <div className='header'>
-        <div className="header__content">
-            <a href='/' className="header__content-logo"></a>
-            {isMobile ? <Burger /> :
-            <NavMenu
-              containerClass='header__nav'
-              itemsClass='header__nav__item'
-            />}
-        </div>
-    </div>
-  )
-}
+    <header className="header">
+      <div className="header__content">
+        <a href="#home" className="header__content-logo" aria-label="Digital Project home"></a>
+        {isMobile ? (
+          <Burger />
+        ) : (
+          <NavMenu containerClass="header__nav" itemsClass="header__nav__item" />
+        )}
+      </div>
+    </header>
+  );
+};
