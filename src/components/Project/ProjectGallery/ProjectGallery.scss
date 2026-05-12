@@ -1,41 +1,46 @@
 @import '../../../mixins/adaptive-rules.scss';
 
 .projectGallery {
-    position: relative;
-    height: 829px;
+  position: relative;
+  height: 829px;
+  width: 100%;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.14);
+
+  @include onSmallPhone {
+    height: 420px;
+  }
+
+  &-img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &-button {
+    position: absolute;
+    left: 24px;
+    bottom: 24px;
+    gap: 12px;
+    background-color: #ffffff;
+    width: 222px;
+    height: 71px;
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.14);
+    transition: transform 0.3s ease, background-color 0.3s ease;
 
     @include onSmallPhone {
-        height: 400px;
+      left: 16px;
+      bottom: 16px;
+      width: 180px;
+      height: 52px;
+      font-size: 12px;
     }
+  }
 
-   
-    &-img {
-        width: 100%;
-        height: 100%;
-    }
-    
-    &-button {
-        position: absolute;
-        left: 0;
-        bottom: 0;
-
-        gap: 12px;
-
-        background-color: #FFFFFF;
-        width: 222px;
-        height: 71px;
-
-
-        @include onSmallPhone {
-            width: 150px;
-            height: 45px;
-
-            font-size: 14px;
-        }
-    }
-
-    &-button:hover {
-        background-color: #f2f2f2
-    }
+  &-button:hover {
+    transform: translateY(-2px);
+    background-color: #f2f2f2;
+  }
 }

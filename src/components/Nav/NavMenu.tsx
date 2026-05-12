@@ -1,19 +1,37 @@
-import React from "react";
+import React from 'react';
 import './NavMenu.scss';
 
 interface NavMenuProps {
-    containerClass?: string
-    itemsClass?: string
+  containerClass?: string;
+  itemsClass?: string;
+  onItemClick?: () => void;
 }
 
-export const NavMenu: React.FC<NavMenuProps> = ({containerClass, itemsClass}) => {
+const navItems = [
+  { label: 'Home', href: '#home' },
+  { label: 'About', href: '#about' },
+  { label: 'Services', href: '#services' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Contact', href: '#contact' },
+];
+
+export const NavMenu: React.FC<NavMenuProps> = ({
+  containerClass,
+  itemsClass,
+  onItemClick,
+}) => {
   return (
-    <div className={`nav ${containerClass}`} >
-      <div className={`nav__item ${itemsClass}`}>главная</div>
-      <div className={`nav__item ${itemsClass}`}>галерея</div>
-      <div className={`nav__item ${itemsClass}`}>проекты</div>
-      <div className={`nav__item ${itemsClass}`}>сертификаты</div>
-      <div className={`nav__item ${itemsClass}`}>контакты</div>
-    </div>
+    <nav className={`nav ${containerClass || ''}`.trim()} aria-label="Primary navigation">
+      {navItems.map(({ label, href }) => (
+        <a
+          key={href}
+          className={`nav__item ${itemsClass || ''}`.trim()}
+          href={href}
+          onClick={onItemClick}
+        >
+          {label}
+        </a>
+      ))}
+    </nav>
   );
 };

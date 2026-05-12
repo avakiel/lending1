@@ -1,152 +1,100 @@
 @import '../../mixins/adaptive-rules.scss';
 
 .mainTasks {
-  margin-top: 120px;
+  margin-top: 100px;
   width: 100%;
-  height: 268px;
 
   @include onTablet {
-    margin-top: 0px;
+    margin-top: 60px;
   }
 
   @include onSmallPhone {
-    margin-top: 40px;
-    height: 100%;
+    margin-top: 48px;
   }
 
   &__title {
     display: flex;
     flex-direction: row;
-    height: 64px;
-
     font-size: 64px;
+    line-height: 1;
     color: #bdbdbd;
     font-weight: 300;
 
     @include onSmallPhone {
-      height: 32px;
-      font-size: 32px;
+      font-size: 36px;
     }
   }
 
   &__option {
     display: flex;
     flex-direction: row;
-    gap: 187px;
-
-    margin-top: 20px;
+    gap: 32px;
+    margin-top: 32px;
 
     @include onTablet {
-      gap: 70px;
+      gap: 24px;
     }
 
     @include onSmallPhone {
-      gap: 50px;
+      gap: 20px;
       flex-direction: column;
     }
 
-
-    &__one {
-      display: flex;
-      flex-direction: row;
-      gap: 30px;
-
-      height: 200px;
-
-      @include onTablet {
-        height: 130px;
-      }
-
-      @include onSmallPhone {
-        height: 80px;
-      }
-
-
-      &-num {
-        line-height: 200px;
-        font-size: 200px;
-        font-weight: 900;
-        color: #f2f2f2;
-        
-      @include onTablet {
-        font-size: 130px;
-        line-height: 130px;
-      }
-
-      @include onSmallPhone {
-        font-size: 80px;
-        line-height: 80px;
-        width: 60px;
-      }
-      }
-
-      &-text {
-        display: flex;
-        align-items: center;
-        width: 100%;
-
-        font-size: 22px;
-        font-weight: 400;
-        color: #333333;
-
-        @include onTablet {
-          font-size: 16px;
-        }
-
-        @include onSmallPhone {
-          font-size: 15px;
-        }
-      }
-    }
-
+    &__one,
     &__two {
       display: flex;
+      flex: 1;
       flex-direction: row;
-      gap: 30px;
-
-      height: 200px;
+      gap: 24px;
+      min-height: 180px;
+      padding: 32px;
+      border-radius: 28px;
+      background: #f8fafc;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06);
 
       @include onTablet {
-        height: 130px;
+        min-height: 150px;
+        padding: 24px;
       }
 
       @include onSmallPhone {
-        height: 80px;
+        min-height: 110px;
+        padding: 20px;
       }
 
       &-num {
-        line-height: 200px;
-        font-size: 200px;
-        font-weight: 900;
-        color: #f2f2f2;
-           
-      @include onTablet {
-        font-size: 130px;
-        line-height: 130px;
-      }
+        line-height: 1;
+        font-size: 96px;
+        font-weight: 800;
+        color: #e5e7eb;
+        min-width: 72px;
 
-      @include onSmallPhone {
-        font-size: 80px;
-        line-height: 80px;
-        width: 60px;
-      }
+        @include onTablet {
+          font-size: 72px;
+          min-width: 56px;
+        }
+
+        @include onSmallPhone {
+          font-size: 58px;
+          min-width: 44px;
+        }
       }
 
       &-text {
         display: flex;
         align-items: center;
         width: 100%;
-
         font-size: 22px;
+        line-height: 1.6;
         font-weight: 400;
         color: #333333;
 
         @include onTablet {
-          font-size: 16px;
+          font-size: 18px;
         }
 
         @include onSmallPhone {
-          font-size: 15px;
+          font-size: 16px;
         }
       }
     }

@@ -1,20 +1,23 @@
-import React from 'react'
-import './MainTasks.scss'
+import React from 'react';
+import './MainTasks.scss';
+
+const priorities = [
+  'Create thoughtful spaces that feel intuitive, welcoming, and easy to use from day one.',
+  'Raise project value through disciplined planning, close collaboration, and detail-led execution.',
+];
 
 export const MainTasks = () => {
   return (
-    <div className='mainTasks'>
-        <div className="mainTasks__title">Основные задачи</div>
-        <div className="mainTasks__option">
-            <div className="mainTasks__option__one">
-                <div className="mainTasks__option__one-num">1</div>
-                <div className="mainTasks__option__one-text">Создание комфортных условий и повышение качества обслуживания клиентов</div>
-            </div>
-            <div className="mainTasks__option__two">
-                <div className="mainTasks__option__two-num">2</div>
-                <div className="mainTasks__option__two-text">Постоянно совершенствовать качество предоставляемых услуг путем обучения персонала, закупки нового оборудования и усиленной рекламы на рынке</div>
-            </div>
-        </div>
-    </div>
-  )
-}
+    <section className="mainTasks" id="services">
+      <div className="mainTasks__title">Core Priorities</div>
+      <div className="mainTasks__option">
+        {priorities.map((text, index) => (
+          <div key={text} className={`mainTasks__option__${index === 0 ? 'one' : 'two'}`}>
+            <div className={`mainTasks__option__${index === 0 ? 'one' : 'two'}-num`}>{index + 1}</div>
+            <div className={`mainTasks__option__${index === 0 ? 'one' : 'two'}-text`}>{text}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};

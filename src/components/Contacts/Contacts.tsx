@@ -1,37 +1,36 @@
-import React from "react";
-import "./Contacts.scss";
-import { Button } from "../Button/Button";
+import React from 'react';
+import './Contacts.scss';
+import { Button } from '../Button/Button';
 
 export const Contacts = () => {
   return (
-    <div className="contacts">
-      <div className="contacts_title">Связаться с нами</div>
+    <section className="contacts" id="contact">
+      <div className="contacts_title">Let&apos;s Build Something Great</div>
+      <p className="contacts_description">
+        Share your idea, timeline, and goals — we&apos;ll come back with a focused proposal and the right next steps.
+      </p>
       <div className="contacts_content">
         <form className="contacts_content-form">
-          <input placeholder="Имя" type="text" name="name" />
-          <input
-            type="tel"
-            placeholder="Номер телефона"
-            name="phone"
-            required
-          />
-          <input type="email" placeholder="E-mail" name="email" required />
+          <input aria-label="Full name" placeholder="Full name" type="text" name="name" />
+          <input type="tel" aria-label="Phone number" placeholder="Phone number" name="phone" required />
+          <input type="email" aria-label="Email address" placeholder="Email address" name="email" required />
           <input
             type="text"
-            placeholder="Интересующий товар/услуга"
-            name="email"
+            aria-label="Project type"
+            placeholder="Project type or service"
+            name="service"
           />
-          <textarea placeholder="Сообщение" required />
+          <textarea aria-label="Project details" placeholder="Tell us about your project" required />
         </form>
         <div className="contacts_content-gallery"></div>
       </div>
       <div className="contacts_content-check">
-        <p>
+        <label className="contacts_agr">
           <input type="checkbox" />
-          <span className="contacts_agr">Отправляя заявку Вы соглашаетесь с политикой конфиденциальности</span>
-        </p>
+          <span>I agree to the processing of my personal data and the privacy policy.</span>
+        </label>
       </div>
-      <Button containerClass="contacts_button"  content="ОТПРАВИТЬ" arrowSide="right"/>
-    </div>
+      <Button containerClass="contacts_button" content="Send Request" arrowSide="right" />
+    </section>
   );
 };

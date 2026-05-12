@@ -1,39 +1,43 @@
 @import '../../mixins/adaptive-rules.scss';
 
 .project {
-    display: grid;
-    width: 100%;
-    grid-template-columns: 400px 1fr;
-    grid-template-areas: 'main gallery';
-    column-gap: 55px;
-    
-    @include onTablet {
-        column-gap: 10px;
-        grid-template-columns: 1fr 2fr;
-    }
+  display: grid;
+  width: 100%;
+  grid-template-columns: 400px 1fr;
+  grid-template-areas: 'main gallery';
+  column-gap: 55px;
+  padding-top: 48px;
+
+  @include onTablet {
+    column-gap: 24px;
+    grid-template-columns: 1fr 2fr;
+    padding-top: 32px;
+  }
+
+  @include onSmallPhone {
+    grid-template-areas:
+      'gallery'
+      'main';
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding-top: 24px;
+  }
+
+  &_main {
+    height: 100%;
+    grid-area: main;
 
     @include onSmallPhone {
-        grid-template-areas:
-        'gallery'
-        'main';
-        grid-template-columns: none;
+      width: 100%;
     }
+  }
 
-    &_main {
-        height: 100%;
-        grid-area: main;
+  &_gallery {
+    height: 100%;
+    grid-area: gallery;
 
-        @include onSmallPhone {
-            width: 100%;
-        }
+    @include onSmallPhone {
+      width: 100%;
     }
-
-    &_gallery {
-        height: 100%;
-        grid-area: gallery;
-
-        @include onSmallPhone {
-            width: 100%;
-        }
-    }
+  }
 }

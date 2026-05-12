@@ -3,16 +3,18 @@
 .App {
   margin: 0 auto;
   max-width: 1440px;
+  min-height: 100vh;
   overflow-x: hidden;
   position: relative;
-
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 400;
   font-style: normal;
+  background-color: #ffffff;
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.08);
 }
 
 .content {
-  padding: 0 135px;
+  padding: 0 135px 0;
 
   @include onTablet {
     padding: 0 50px;
