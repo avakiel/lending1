@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Header.scss';
 import { NavMenu } from '../Nav/NavMenu';
 import { Burger } from '../BurgerMenu/Burger';
+import logo from '../../img/logo.png';
 
 export const Header = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -22,7 +23,9 @@ export const Header = () => {
   return (
     <header className="header">
       <div className="header__content">
-        <a href="#home" className="header__content-logo" aria-label="Digital Project home"></a>
+        <a href="#home" className="header__content-logo" aria-label="Digital Project home">
+          <img src={logo} alt="Digital Project" className="header__content-logo-image" />
+        </a>
         {isMobile ? (
           <Burger />
         ) : (
